@@ -1,0 +1,13 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "postgres": "postgres://massive:science@db:5432/massivedb",
+  "public": "../public/",
+  "auth": {
+    "idField": "id",
+    "token": {
+      "secret": "H1DD6PBjnyFiZHAnL5ec1on/Mzczh543bsozZ0IspoqnVKYoKlPYA4/ZavIW8gtPhx5u7Nz2f13Gr11uDgQGwg=="
+    },
+    "local": {}
+  }
+}

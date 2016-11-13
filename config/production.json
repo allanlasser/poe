@@ -2,6 +2,7 @@
   "host": "launchpad-app.feathersjs.com",
   "port": 80,
   "postgres": "DATABASE_URL",
+  "redis": "REDIS_URL",
   "public": "../public/",
   "auth": {
     "idField": "id",

@@ -3,7 +3,7 @@
 Launchpad is a starting point for amazing applications.
 
 It provides some simple setting up and configuration, so that you can just start building something!
-Launchpad uses [Docker](http://www.docker.com) to set up and run a webserver using [NodeJS](https://nodejs.org/en/), the [Feathers](http://feathersjs.com) framework, and a [Postgres](http://postgresql.org) database.
+Launchpad uses [Docker](http://www.docker.com) to set up and run a webserver using [NodeJS](https://nodejs.org/en/), the [Feathers](http://feathersjs.com) framework, a [Postgres](http://postgresql.org) database, and [Redis](http://redis.io) caching.
 
 ## Setup
 

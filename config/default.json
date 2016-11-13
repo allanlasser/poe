@@ -2,6 +2,7 @@
   "host": "localhost",
   "port": 3030,
   "postgres": "postgres://massive:science@db:5432/massivedb",
+  "redis": "redis://redis:6379/0",
   "public": "../public/",
   "auth": {
     "idField": "id",

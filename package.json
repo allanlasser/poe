@@ -24,7 +24,9 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "compression": "^1.6.2",
+    "connect-redis": "^3.1.0",
     "cors": "^2.8.1",
+    "express-session": "^1.14.2",
     "feathers": "^2.0.2",
     "feathers-authentication": "^0.7.12",
     "feathers-configuration": "^0.3.3",
@@ -36,6 +38,7 @@
     "passport": "^0.3.2",
     "pg": "^6.1.0",
     "pg-hstore": "^2.3.2",
+    "redis": "^2.6.3",
     "sequelize": "^3.25.0",
     "serve-favicon": "^2.3.0",
     "winston": "^2.3.0"

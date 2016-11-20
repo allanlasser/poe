@@ -7,7 +7,10 @@ import React, { PropTypes } from 'react';
 
 const App = ({children}) => (
   <div>
-    <h1>🚀  Ready for liftoff!</h1>
+    <h1>
+      <span className="rocket">🚀</span>
+      <span className="success">Ready for liftoff!</span>
+    </h1>
     <hr />
     {children}
   </div>

@@ -11,24 +11,23 @@ var isDev = nodeEnv === 'development';
 var config = {
     devtool: '#source-map',
     entry: [
-      path.join(__dirname, 'public/index.js'),
-      path.join(__dirname, 'public/css/app.css'),
+      'react-hot-loader/patch',
+      'webpack-hot-middleware/client',
+      path.join(__dirname, 'public/index.js'), // root JavaScript file
+      path.join(__dirname, 'public/css/app.css'), // root CSS file
     ],
     output: {
       path: path.join(__dirname, 'public/bundle'),
-      publicPath: '/',
+      publicPath: 'http://localhost:3030/bundle/',
       filename: isDev ? '[name].js' : '[name].[chunkhash].js',
     },
     module: {
       loaders: [
         {
           test: /\.jsx?$/,
-          loader: 'babel',
+          loaders: ['babel'],
           include: path.join(__dirname, 'public'),
           exclude: path.join(__dirname, 'node_modules'),
-          query: {
-            presets: ['es2015', 'react'],
-          }
         },
         {
           test: /\.css$/,
@@ -57,7 +56,11 @@ var config = {
 };
 
 if (isDev) {
-  config.plugins.push(new webpack.HotModuleReplacementPlugin())
+  config.plugins.push(
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  );
 }
 
 module.exports = validate(config);

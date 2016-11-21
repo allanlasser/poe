@@ -15,8 +15,27 @@ const middleware = require('./middleware');
 const services = require('./services');
 
 const app = feathers();
+const isDev = process.env.NODE_ENV !== 'production';
 
 app.configure(configuration(path.join(__dirname, '..')));
+
+if (isDev) {
+  // In development enviroments, use the Webpack dev server
+  // This allows us to hot-reload our components
+  const webpack = require('webpack');
+  const webpackConfig = require('../webpack.config.js');
+  const compiler = webpack(webpackConfig);
+  app.use(require('webpack-dev-middleware')(compiler, {
+    publicPath: webpackConfig.output.publicPath,
+    noInfo: true,
+    stats: { colors: true },
+    watchOptions: {
+      aggregateTimeout: 300,
+      poll: true,
+    }
+  }));
+  app.use(require('webpack-hot-middleware')(compiler));
+}
 
 app.use(compress())
   .options('*', cors())

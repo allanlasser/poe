@@ -9,7 +9,7 @@ const App = ({children}) => (
   <div>
     <h1>
       <span className="rocket">🚀</span>
-      <span className="success">Ready for liftoff!</span>
+      <span className="success">Ready for blastoff!</span>
     </h1>
     <hr />
     {children}

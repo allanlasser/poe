@@ -1,0 +1,10 @@
+.rocket {
+  display: block;
+  font-size: 4em;
+  text-align: center;
+}
+.success {
+  display: block;
+  font-size: 2em;
+  text-align: center;
+}

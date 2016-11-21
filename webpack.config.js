@@ -9,7 +9,7 @@ var nodeEnv = process.env.NODE_ENV || 'development';
 var isDev = nodeEnv === 'development';
 
 var config = {
-    devtool: '#source-map',
+    devtool: 'source-map',
     entry: [
       'react-hot-loader/patch',
       'webpack-hot-middleware/client',
@@ -31,7 +31,7 @@ var config = {
         },
         {
           test: /\.css$/,
-          loader: ExtractText.extract('style-loader', 'css-loader?sourceMap!postcss-loader?sourceMap'),
+          loader: 'style-loader!css-loader?sourceMap!postcss-loader?sourceMap',
           include: path.join(__dirname, 'public'),
         },
       ]
@@ -40,7 +40,6 @@ var config = {
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify(nodeEnv),
       }),
-      new ExtractText(isDev ? '[name].css' : '[name].[chunkhash].css'),
     ],
     postcss: function(webpack) {
       return [

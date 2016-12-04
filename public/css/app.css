@@ -1,8 +1,0 @@
-@import 'launchpad.css';
-
-$font-size: 14px;
-
-html {
-  font-size: $font-size;
-  font-family: sans-serif;
-}

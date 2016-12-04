@@ -11,7 +11,6 @@ module.exports = function() {
   // just like Express the order matters, so error
   // handling middleware should go last.
   const app = this;
-
   app.use(session({
     store: new RedisStore({
         'url': app.get('redis')

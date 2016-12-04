@@ -6,12 +6,11 @@
 import React, { PropTypes } from 'react';
 
 const App = ({children}) => (
-  <div>
+  <div id="app">
     <h1>
       <span className="rocket">🚀</span>
       <span className="success">Ready for blastoff!</span>
     </h1>
-    <hr />
     {children}
   </div>
 );

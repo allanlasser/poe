@@ -13,7 +13,7 @@ var config = {
     entry: [
       'react-hot-loader/patch',
       'webpack-hot-middleware/client',
-      path.join(__dirname, 'src/client/index.js'), // root JavaScript file
+      path.join(__dirname, 'src/client/index.js') // root JavaScript file
     ],
     output: {
       path: path.join(__dirname, 'public'),
@@ -25,13 +25,13 @@ var config = {
         {
           test: /\.jsx?$/,
           loaders: ['babel'],
-          include: path.join(__dirname, 'public'),
+          include: path.join(__dirname, 'src/client'),
           exclude: path.join(__dirname, 'node_modules'),
         },
         {
           test: /\.css$/,
           loader: 'style-loader!css-loader?sourceMap!postcss-loader?sourceMap',
-          include: path.join(__dirname, 'public'),
+          include: path.join(__dirname, 'src/client'),
         },
       ]
     },

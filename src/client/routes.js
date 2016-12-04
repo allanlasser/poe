@@ -8,14 +8,14 @@ const Home = () => (
     <p>This is the Launchpad home page.</p>
     <Link to="/about">About</Link>
   </div>
-)
+);
 
 const About = () => (
   <div className="about">
     <p>This is the Launchpad about page.</p>
     <Link to="/">Home</Link>
   </div>
-)
+);
 
 export default (
   <Route path="/" component={App}>

@@ -8,9 +8,7 @@ const isDev = process.env.NODE_ENV !== 'production';
 
 function configureStore(initialState) {
   if (isDev) {
-    return createStore(rootReducer, initialState, composeWithDevTools(
-      applyMiddleware(thunk),
-    ))
+    return createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(thunk)));
   }
   return createStore(rootReducer, initialState, applyMiddleware(thunk));
 }

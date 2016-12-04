@@ -13,12 +13,11 @@ var config = {
     entry: [
       'react-hot-loader/patch',
       'webpack-hot-middleware/client',
-      path.join(__dirname, 'public/index.js'), // root JavaScript file
-      path.join(__dirname, 'public/css/app.css'), // root CSS file
+      path.join(__dirname, 'src/client/index.js'), // root JavaScript file
     ],
     output: {
-      path: path.join(__dirname, 'public/bundle'),
-      publicPath: 'http://localhost:3030/bundle/',
+      path: path.join(__dirname, 'public'),
+      publicPath: 'http://localhost:3030/',
       filename: isDev ? '[name].js' : '[name].[chunkhash].js',
     },
     module: {

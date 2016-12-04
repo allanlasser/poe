@@ -4,10 +4,11 @@
  *
  */
 
-import React from 'react';
-import { render } from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
+import React from 'react'
+import { render } from 'react-dom'
+import { AppContainer } from 'react-hot-loader'
 
+import './styles/app.css';
 import App from './components/App';
 
 const root = document.getElementById('root');

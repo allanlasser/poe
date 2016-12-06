@@ -13,13 +13,10 @@ const bodyParser = require('body-parser');
 const socketio = require('feathers-socketio');
 const middleware = require('./middleware');
 const services = require('./services');
-const hotReload = require('./hotReload');
 
 const app = feathers();
 
 app.configure(configuration(path.join(__dirname, '../..')));
-
-hotReload(app);
 
 app.use(compress())
   .options('*', cors())

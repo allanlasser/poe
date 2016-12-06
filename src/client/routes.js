@@ -2,20 +2,8 @@ import React from 'react';
 import { Route, IndexRoute, Link } from 'react-router';
 
 import App from './components/App';
-
-const Home = () => (
-  <div className="home">
-    <p>This is the Launchpad home page.</p>
-    <Link to="/about">About</Link>
-  </div>
-);
-
-const About = () => (
-  <div className="about">
-    <p>This is the Launchpad about page.</p>
-    <Link to="/">Home</Link>
-  </div>
-);
+import Home from './components/Home';
+import About from './components/About';
 
 export default (
   <Route path="/" component={App}>

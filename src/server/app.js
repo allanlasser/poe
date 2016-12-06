@@ -15,13 +15,11 @@ const middleware = require('./middleware');
 const services = require('./services');
 
 const app = feathers();
-const isDev = process.env.NODE_ENV !== 'production';
 
 app.configure(configuration(path.join(__dirname, '../..')));
 
+const isDev = process.env.NODE_ENV !== 'production';
 if (isDev) {
-  // In development enviroments, use the Webpack dev server
-  // This allows us to hot-reload our components
   const webpack = require('webpack');
   const webpackConfig = require('../../webpack.config.js');
   const compiler = webpack(webpackConfig);

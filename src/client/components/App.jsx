@@ -1,8 +1,3 @@
-/* App.js
- *
- * This is the root React component.
- */
-
 import React, { PropTypes } from 'react';
 
 const App = ({children}) => (

@@ -7,6 +7,16 @@ html {
   font-family: sans-serif;
   background: linear-gradient(180deg, black, blue);
   color: white;
+  text-align: center;
+  a {
+    margin-right: 1em;
+    color: white;
+    font-weight: bold;
+    opacity: .8;
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
 
 body {
@@ -16,6 +26,7 @@ body {
 #app {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }

@@ -11,8 +11,10 @@ html {
   a {
     margin-right: 1em;
     color: white;
+    font-weight: bold;
+    opacity: .8;
     &:hover {
-      color:white;
+      opacity: 1;
     }
   }
 }

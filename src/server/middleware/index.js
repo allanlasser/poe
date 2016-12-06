@@ -17,6 +17,8 @@ module.exports = function() {
         'url': app.get('redis')
     }),
     secret: 'science rules',
+    resave: true,
+    saveUninitialized: true,
   }));
   app.use(router());
   app.use(notFound());

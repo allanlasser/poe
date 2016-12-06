@@ -9,7 +9,7 @@ import Root from './containers/Root';
 import './styles/app.css';
 
 const rootElement = document.getElementById('root');
-const store = configureStore();
+const store = configureStore(browserHistory, window.__initialState__);
 const history = syncHistoryWithStore(browserHistory, store);
 
 render(

@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 import { renderToString } from 'react-dom';
 
-const HTML = ({component}) => {
-  const root = component ? renderToString(component) : '';
+const HTML = ({content}) => {
+  const root = content ? content : '';
   return (
     <html>
       <head>
@@ -10,7 +10,6 @@ const HTML = ({component}) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body>
-        <h1>Butts</h1>
         <div id="root" dangerouslySetInnerHTML={{__html: root}}></div>
         <script type="text/javascript" src="/main.js"></script>
       </body>
@@ -19,7 +18,7 @@ const HTML = ({component}) => {
 };
 
 HTML.propTypes = {
-  component: PropTypes.node
+  component: PropTypes.string
 };
 
 export default HTML;

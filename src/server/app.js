@@ -18,6 +18,23 @@ const app = feathers();
 
 app.configure(configuration(path.join(__dirname, '../..')));
 
+const isDev = process.env.NODE_ENV !== 'production';
+if (isDev) {
+  const webpack = require('webpack');
+  const webpackConfig = require('../../webpack.config.js');
+  const compiler = webpack(webpackConfig);
+  app.use(require('webpack-dev-middleware')(compiler, {
+    publicPath: webpackConfig.output.publicPath,
+    noInfo: true,
+    stats: { colors: true },
+    watchOptions: {
+      aggregateTimeout: 300,
+      poll: true,
+    }
+  }));
+  app.use(require('webpack-hot-middleware')(compiler));
+}
+
 app.use(compress())
   .options('*', cors())
   .use(cors())

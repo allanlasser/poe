@@ -6,37 +6,26 @@ const logger = require('./logger');
 const session = require('express-session');
 const RedisStore = require('connect-redis')(session);
 
-const webpack = require('webpack');
-const webpackConfig = require('../../../webpack.config.js');
-const compiler = webpack(webpackConfig);
+import React from 'react';
+import { createMemoryHistory, match, RouterContext } from 'react-router';
+import { renderToString } from 'react-dom/server';
+import { Provider } from 'react-redux';
+import { syncHistoryWithStore } from 'react-router-redux';
 
-const match = require('react-router').match;
-const routes = require('../../client/routes');
-const renderToString = require('react-dom').renderToString;
-const HTML = require('../../client/components/HTML');
+import configureStore from '../../client/store';
+import routes from '../../client/routes';
+import HTML from '../../client/components/HTML';
 
 module.exports = function() {
   // Add your custom middleware here. Remember, that
   // just like Express the order matters, so error
   // handling middleware should go last.
   const app = this;
-  const isDev = process.env.NODE_ENV !== 'production';
-  if (isDev) {
-    app.use(require('webpack-dev-middleware')(compiler, {
-      publicPath: webpackConfig.output.publicPath,
-      noInfo: true,
-      stats: { colors: true },
-      watchOptions: {
-        aggregateTimeout: 300,
-        poll: true,
-      }
-    }));
-    app.use(require('webpack-hot-middleware')(compiler));
-  }
   app.use(function(req, res, next) {
-    console.log(req.url);
-    console.log(routes);
-    match({routes, location: req.url}, (error, redirectLocation, renderProps) => {
+    const memoryHistory = createMemoryHistory(req.url);
+    const store = configureStore(memoryHistory);
+    const history = syncHistoryWithStore(memoryHistory, store);
+    match({history, routes, location: req.url}, (error, redirectLocation, renderProps) => {
       console.log('Entered Match');
       console.log(error);
       console.log(redirectLocation);
@@ -46,7 +35,12 @@ module.exports = function() {
       } else if (redirectLocation) {
         res.redirect(302, redirectLocation.pathname + redirectLocation.search);
       } else if (renderProps) {
-        res.send('<!doctype html>' + renderToString(<HTML />));
+        const content = renderToString(
+          <Provider store={store}>
+            <RouterContext {...renderProps} />
+          </Provider>
+        );
+        res.send('<!doctype html>' + renderToString(<HTML content={content} />));
       } else {
         next();
       }

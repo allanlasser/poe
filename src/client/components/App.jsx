@@ -1,7 +1,5 @@
 import React, { PropTypes } from 'react';
 
-import '../styles/app.css';
-
 const App = ({children}) => (
   <div id="app">
     <h1>

@@ -6,6 +6,7 @@ import { AppContainer } from 'react-hot-loader';
 
 import configureStore from './store';
 import Root from './containers/Root';
+import './styles/app.css';
 
 const rootElement = document.getElementById('root');
 const store = configureStore();

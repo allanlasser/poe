@@ -7,6 +7,14 @@ html {
   font-family: sans-serif;
   background: linear-gradient(180deg, black, blue);
   color: white;
+  text-align: center;
+  a {
+    margin-right: 1em;
+    color: white;
+    &:hover {
+      color:white;
+    }
+  }
 }
 
 body {

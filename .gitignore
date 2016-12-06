@@ -33,3 +33,6 @@ public/main.*
 
 lib/
 data/
+
+# Mac junk
+.DS_Store

@@ -40,7 +40,7 @@ module.exports = function() {
             <RouterContext {...renderProps} />
           </Provider>
         );
-        res.send('<!doctype html>' + renderToString(<HTML content={content} />));
+        res.send('<!doctype html>' + renderToString(<HTML content={content} store={store} />));
       } else {
         next();
       }

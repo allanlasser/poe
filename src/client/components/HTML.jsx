@@ -1,7 +1,9 @@
+import serialize from 'serialize-javascript';
+
 import React, { PropTypes } from 'react';
 import { renderToString } from 'react-dom';
 
-const HTML = ({content}) => {
+const HTML = ({content, store}) => {
   const root = content ? content : '';
   return (
     <html>
@@ -11,6 +13,7 @@ const HTML = ({content}) => {
       </head>
       <body>
         <div id="root" dangerouslySetInnerHTML={{__html: root}}></div>
+        <script dangerouslySetInnerHTML={{ __html: `window.__initialState__=${serialize(store.getState())};` }}/>
         <script type="text/javascript" src="/main.js"></script>
       </body>
     </html>
@@ -18,7 +21,8 @@ const HTML = ({content}) => {
 };
 
 HTML.propTypes = {
-  component: PropTypes.string
+  component: PropTypes.string,
+  store: PropTypes.object,
 };
 
 export default HTML;

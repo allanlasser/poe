@@ -1,7 +1,9 @@
 version: '2'
 services:
-    web:
-        build: .
+    feathers:
+        build:
+            context: .
+            dockerfile: Dockerfile.feathers
         ports:
             - "3030:3030"
         volumes:
@@ -12,6 +14,15 @@ services:
             - db
         environment:
             PORT: 3030
+    webpack:
+        build:
+            context: .
+            dockerfile: Dockerfile.webpack
+        ports:
+            - "8080:8080"
+        volumes:
+            - .:/usr/src/app
+            - /usr/src/app/node_modules/
     db:
         image: postgres
         ports:
@@ -24,4 +35,3 @@ services:
         image: redis
         ports:
             - "6379:6379"
-

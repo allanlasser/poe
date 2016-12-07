@@ -1,0 +1,19 @@
+# Define the NodeJS we're using
+# In this case, we're using the
+# recommended LTS version 6.9.1
+FROM node:6.9.1
+# Create app directory
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+# Install webpack dev server
+RUN npm install -g webpack-dev-server
+# Install dependencies using Yarn
+COPY package.json /usr/src/app/
+RUN npm install -g yarn
+RUN yarn
+# Bundle app source
+COPY . /usr/src/app/
+# 8080 is the Webpack Dev Server port
+EXPOSE 8080
+# Define the runtime command
+CMD ["webpack-dev-server"]

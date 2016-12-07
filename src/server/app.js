@@ -18,6 +18,7 @@ const app = feathers();
 
 app.configure(configuration(path.join(__dirname, '../..')));
 
+/*
 const isDev = process.env.NODE_ENV !== 'production';
 if (isDev) {
   const webpack = require('webpack');
@@ -34,6 +35,7 @@ if (isDev) {
   }));
   app.use(require('webpack-hot-middleware')(compiler));
 }
+*/
 
 app.use(compress())
   .options('*', cors())

@@ -1,8 +1,8 @@
 'use strict';
 
-const assert = require('assert');
-const request = require('request');
-const app = require('../src/server/app');
+import assert from 'assert';
+import request from 'request';
+import app from '../src/server/app';
 
 describe('Feathers application tests', function() {
   before(function(done) {
@@ -14,9 +14,9 @@ describe('Feathers application tests', function() {
     this.server.close(done);
   });
 
-  it('starts and shows the index page', function(done) {
+  it('starts and renders the HTML component', function(done) {
     request('http://localhost:3030', function(err, res, body) {
-      assert.ok(body.indexOf('<html>') !== -1);
+      assert.ok(body.indexOf('<!doctype html>') !== -1);
       done(err);
     });
   });

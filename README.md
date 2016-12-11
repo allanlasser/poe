@@ -13,7 +13,12 @@ Launchpad uses [Docker](http://www.docker.com) to set up and run a webserver usi
 
 ## Testing
 
-Simply run `npm test` and all your tests in the `test/` directory will be run.
+Before running tests, ensure all services are running with `docker-compose start`. If they are not running, the application will time out when testing request responses.
+
+Then, simply run `npm test` and all your tests in the `test/` directory will be run.
+
+- To run tests without linting, run `npm run mocha`.
+- To run linting without tests, run `npm run lint`.
 
 ## Scaffolding
 

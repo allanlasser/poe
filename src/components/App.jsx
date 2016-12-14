@@ -1,11 +1,8 @@
 import React, { PropTypes } from 'react';
 
 const App = ({children}) => (
-  <div id="app">
-    <h1>
-      <span className="rocket">🚀</span>
-      <span className="success">Ready for blastoff!</span>
-    </h1>
+  <div id="launchpad">
+    <h1>Ready for liftoff!</h1>
     {children}
   </div>
 );

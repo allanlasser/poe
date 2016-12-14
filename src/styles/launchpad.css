@@ -1,10 +1,29 @@
-.rocket {
+#launchpad {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  background: linear-gradient(180deg, black, blue);
+  background-image: url('../../public/launchpad.png');
+  background-size: cover;
+  background-position: bottom center;
+}
+
+#launchpad a {
+  margin-right: 1em;
+  color: white;
+  font-weight: bold;
+  opacity: .8;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+#launchpad h1 {
   display: block;
   font-size: 4em;
-  text-align: center;
-}
-.success {
-  display: block;
-  font-size: 2em;
   text-align: center;
 }

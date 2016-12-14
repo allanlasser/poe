@@ -1,32 +1,12 @@
 @import 'launchpad.css';
 
-$font-size: 14px;
+$font-size: 18px;
 
 html {
   font-size: $font-size;
   font-family: sans-serif;
-  background: linear-gradient(180deg, black, blue);
-  color: white;
-  text-align: center;
-  a {
-    margin-right: 1em;
-    color: white;
-    font-weight: bold;
-    opacity: .8;
-    &:hover {
-      opacity: 1;
-    }
-  }
 }
 
 body {
   margin: 0;
-}
-
-#app {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }

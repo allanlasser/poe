@@ -18,7 +18,7 @@
   "scripts": {
     "test": "npm run lint && npm run mocha",
     "lint": "eslint src/",
-    "start": "babel-watch --exclude src/client src/server/",
+    "start": "babel-watch src/server.js",
     "mocha": "NODE_ENV=test mocha test/ --recursive --compilers js:babel-core/register"
   },
   "dependencies": {

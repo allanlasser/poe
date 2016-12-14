@@ -4,9 +4,9 @@ import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { syncHistoryWithStore } from 'react-router-redux';
 
-import configureStore from '../../client/store';
-import routes from '../../client/routes';
-import HTML from '../../client/components/HTML';
+import configureStore from '../store';
+import routes from '../routes';
+import HTML from '../components/HTML';
 
 module.exports = function() {
   return function(req, res, next) {

@@ -13,7 +13,7 @@ var config = {
     entry: [
       'react-hot-loader/patch',
       'webpack-hot-middleware/client',
-      path.join(__dirname, 'src/client.js') // root JavaScript file
+      path.join(__dirname, 'src/client.js')
     ],
     output: {
       path: path.join(__dirname, 'public'),
@@ -33,6 +33,10 @@ var config = {
           loader: 'style-loader!css-loader?sourceMap!postcss-loader?sourceMap',
           include: path.join(__dirname, 'src'),
         },
+        {
+          test: /\.(png|jpg|gif)$/,
+          loader: 'file-loader'
+        },
       ]
     },
     plugins: [
@@ -46,7 +50,7 @@ var config = {
         require('postcss-url')(),
         require('postcss-cssnext')(),
         require('precss'),
-      ]
+      ];
     },
     resolve: {
       extensions: ['', '.js', '.jsx']

@@ -9,16 +9,17 @@ var nodeEnv = process.env.NODE_ENV || 'development';
 var isDev = nodeEnv === 'development';
 
 var config = {
-    devtool: 'source-map',
+    devtool: 'eval-source-map',
     entry: [
+      'webpack-dev-server/client?http://localhost:8080',
+      'webpack/hot/dev-server',
       'react-hot-loader/patch',
-      'webpack-hot-middleware/client',
-      path.join(__dirname, 'src/client.js')
+      path.join(__dirname, '/src/client.js')
     ],
     output: {
-      path: path.join(__dirname, 'public'),
-      publicPath: 'http://localhost:3030/',
+      path: path.join(__dirname, '/public'),
       filename: isDev ? '[name].js' : '[name].[chunkhash].js',
+      publicPath: 'http://localhost:8080/assets/',
     },
     module: {
       loaders: [
@@ -35,7 +36,7 @@ var config = {
         },
         {
           test: /\.(png|jpg|gif)$/,
-          loader: 'file-loader'
+          loader: 'file-loader?emitFile=false'
         },
       ]
     },

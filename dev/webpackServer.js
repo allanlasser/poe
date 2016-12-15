@@ -12,10 +12,6 @@ new WebpackDevServer(compiler, {
   port: '8080',
   contentBase: 'public',
   publicPath: config.output.publicPath,
-  watchOptions: {
-    aggregateTimeout: 300,
-    poll: 1000
-  },
   headers: {
     'Access-Control-Allow-Origin': 'http://localhost:3030',
     'Access-Control-Allow-Credentials': 'true'

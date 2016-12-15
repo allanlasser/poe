@@ -13,7 +13,7 @@ var config = {
     entry: [
       'react-hot-loader/patch',
       'webpack-hot-middleware/client',
-      path.join(__dirname, 'src/client.js') // root JavaScript file
+      path.join(__dirname, 'src/client.js')
     ],
     output: {
       path: path.join(__dirname, 'public'),

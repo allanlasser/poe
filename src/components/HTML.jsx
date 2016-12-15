@@ -14,7 +14,7 @@ const HTML = ({content, store}) => {
       <body>
         <div id="root" dangerouslySetInnerHTML={{__html: root}}></div>
         <script dangerouslySetInnerHTML={{ __html: `window.__initialState__=${serialize(store.getState())};` }}/>
-        <script type="text/javascript" src="http://localhost:8080/public/main.js"></script>
+        <script type="text/javascript" src="http://localhost:8080/assets/main.js"></script>
       </body>
     </html>
   );

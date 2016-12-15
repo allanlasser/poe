@@ -15,7 +15,7 @@ var config = {
       inline: true,
       hot: true,
       host: '0.0.0.0',
-      port: '8080',
+      // port: '8080',
       contentBase: 'public',
       headers: {
         'Access-Control-Allow-Origin': 'http://localhost:3030',
@@ -25,12 +25,12 @@ var config = {
     entry: [
       'webpack/hot/dev-server',
       'react-hot-loader/patch',
-      path.join(__dirname, 'src/client.js')
+      path.join(__dirname, '/src/client.js')
     ],
     output: {
-      path: path.join(__dirname, 'public'),
-      publicPath: 'http://localhost:8080/public/',
+      path: path.join(__dirname, '/public'),
       filename: isDev ? '[name].js' : '[name].[chunkhash].js',
+      publicPath: '/assets/',
     },
     module: {
       loaders: [
@@ -47,7 +47,7 @@ var config = {
         },
         {
           test: /\.(png|jpg|gif)$/,
-          loader: 'file-loader'
+          loader: 'file-loader?emitFile=false'
         },
       ]
     },

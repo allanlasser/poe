@@ -9,7 +9,7 @@ var nodeEnv = process.env.NODE_ENV || 'development';
 var isDev = nodeEnv === 'development';
 
 var config = {
-    devtool: 'source-map',
+    devtool: 'eval-source-map',
     entry: [
       'webpack-dev-server/client?http://localhost:8080',
       'webpack/hot/dev-server',

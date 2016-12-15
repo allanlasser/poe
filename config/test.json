@@ -1,0 +1,4 @@
+{
+  "postgres": "postgres://massive:science@localhost:5432/massivedb",
+  "redis": "redis://localhost:6379/0"
+}

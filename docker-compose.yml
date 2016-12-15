@@ -27,6 +27,8 @@ services:
         image: postgres
         ports:
             - "5432:5432"
+        depends_on:
+            - redis
         environment:
             POSTGRES_USER: massive
             POSTGRES_PASSWORD: science

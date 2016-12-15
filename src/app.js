@@ -16,13 +16,13 @@ const services = require('./services');
 
 const app = feathers();
 
-app.configure(configuration(path.join(__dirname, '../..')));
+app.configure(configuration(path.join(__dirname, '..')));
 
 /*
 const isDev = process.env.NODE_ENV !== 'production';
 if (isDev) {
   const webpack = require('webpack');
-  const webpackConfig = require('../../webpack.config.js');
+  const webpackConfig = require('../webpack.config.js');
   const compiler = webpack(webpackConfig);
   app.use(require('webpack-dev-middleware')(compiler, {
     publicPath: webpackConfig.output.publicPath,

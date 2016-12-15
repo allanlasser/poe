@@ -1,0 +1,15 @@
+@import 'tachyons';
+@import 'launchpad.css';
+
+html, body {
+  height: 100%;
+}
+
+html {
+  font-size: 18px;
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}

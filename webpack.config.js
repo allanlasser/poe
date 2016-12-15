@@ -10,19 +10,8 @@ var isDev = nodeEnv === 'development';
 
 var config = {
     devtool: 'source-map',
-    devServer: {
-      quiet: true,
-      inline: true,
-      hot: true,
-      host: '0.0.0.0',
-      // port: '8080',
-      contentBase: 'public',
-      headers: {
-        'Access-Control-Allow-Origin': 'http://localhost:3030',
-        'Access-Control-Allow-Credentials': 'true'
-      }
-    },
     entry: [
+      'webpack-dev-server/client?http://localhost:8080',
       'webpack/hot/dev-server',
       'react-hot-loader/patch',
       path.join(__dirname, '/src/client.js')
@@ -30,7 +19,7 @@ var config = {
     output: {
       path: path.join(__dirname, '/public'),
       filename: isDev ? '[name].js' : '[name].[chunkhash].js',
-      publicPath: '/assets/',
+      publicPath: 'http://localhost:8080/assets/',
     },
     module: {
       loaders: [

@@ -16,8 +16,15 @@
     "node": true,
     "es6": true,
   },
+  "plugins": [
+    "react",
+  ],
   "rules": {
     "quotes": [2, "single"],
     "semi": [2, "always"],
+    "react/jsx-uses-react": [2],
+    "react/jsx-uses-vars": [2],
+    "react/jsx-no-target-blank": [2],
+    "react/prop-types": [2],
   },
 }

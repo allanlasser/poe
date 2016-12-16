@@ -23,20 +23,20 @@ var config = {
     },
     module: {
       loaders: [
-        {
+        { // Javascript loader
           test: /\.jsx?$/,
           loaders: ['babel'],
           include: path.join(__dirname, 'src'),
           exclude: path.join(__dirname, 'node_modules'),
         },
-        {
+        { // CSS loader
           test: /\.css$/,
           loader: 'style-loader!css-loader?sourceMap!postcss-loader?sourceMap',
           include: path.join(__dirname, 'src'),
         },
-        {
+        { // Image loader
           test: /\.(png|jpg|gif)$/,
-          loader: 'file-loader?emitFile=false'
+          loader: 'file-loader?name=[name].[ext]'
         },
       ]
     },

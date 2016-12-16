@@ -1,6 +1,6 @@
-import assert from 'assert';
 import React from 'react';
 import ReactTestUtils from 'react-addons-test-utils';
+import { expect } from 'chai';
 
 import Home from '../../src/components/Home';
 
@@ -11,7 +11,7 @@ describe('<Home />', () => {
   beforeEach(() => {
     component = shallowRenderer.render(<Home />);
   });
-  it('should shallow render the component', () => {
-    assert.equal(component.type, 'div');
+  it('renders as a <div>', () => {
+    expect(component.type).to.equal('div');
   });
 });

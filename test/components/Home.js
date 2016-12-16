@@ -12,4 +12,8 @@ describe('<Home />', () => {
   it('renders as a <div>', () => {
     expect(component.is('div')).to.be.true;
   });
+  it('presents an image', () => {
+    expect(component.find('img')).to.have.lengthOf(1);
+    expect(component.find('img').get(0).props.src).to.equal('/launchpad.png');
+  });
 });

@@ -2,7 +2,7 @@
 
 import assert from 'assert';
 import request from 'request';
-import app from '../src/server/app';
+import app from '../src/app';
 
 describe('Feathers application tests', function() {
   before(function(done) {

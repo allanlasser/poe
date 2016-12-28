@@ -5,7 +5,7 @@ const Todo = ({onClick, completed, text}) => (
     onClick={onClick}
     className={'todo' + (completed ? ' completed' : '')}
   >
-    <input type="checkbox" defaultChecked={completed ? 'checked' : ''} />
+    <input type="checkbox" checked={completed} readOnly />
     <label>{text}</label>
   </li>
 );

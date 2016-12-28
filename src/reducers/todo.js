@@ -6,12 +6,20 @@ const createTodo = (text) => ({
 });
 
 const todoList = [
-  createTodo('Docker'),
-  createTodo('Feathers'),
-  createTodo('React'),
-  createTodo('Redux'),
-  createTodo('Routing'),
-  createTodo('Webpack')
+  createTodo('docker'),
+  createTodo('feathers'),
+  createTodo('redis'),
+  createTodo('postgres'),
+  createTodo('webpack'),
+  createTodo('react'),
+  createTodo('redux'),
+  createTodo('routing'),
+  createTodo('postcss'),
+  createTodo('tachyons'),
+  createTodo('isomorphic'),
+  createTodo('hot reload'),
+  createTodo('ES6 + babel'),
+  createTodo('chai + mocha testing'),
 ];
 
 const todo = (state = {}, action) => {

@@ -1,3 +1,7 @@
+body {
+  line-height: 1.4;
+}
+
 h1 {
   display: block;
   margin: 0;
@@ -6,7 +10,7 @@ h1 {
 }
 
 a {
-  margin-right: 1em;
+  // margin-right: 1em;
   color: white;
   font-weight: bold;
   text-decoration: none;
@@ -28,7 +32,6 @@ a {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 .bg-pink {
@@ -38,6 +41,43 @@ a {
 #about {
   background-image: url('../../public/launchpad-about.png');
   background-size: auto;
-  background-position: right top;
+  background-position: center top;
   background-repeat: no-repeat;
+}
+
+ul.nostyle {
+  list-style: none;
+  padding-left: 0;
+}
+
+.launchChecklist {
+  transform: rotate(-3deg) translateY(-12px);
+  box-shadow: -1px 4px 8px 0px rgba(0, 0, 0, .5);
+}
+
+.todoList {
+  columns: 2 auto;
+}
+
+.todo {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: .5em;
+  opacity: .5;
+  font-weight: 400;
+  input {
+    display: none;
+    margin-right: .5em;
+  }
+  &::before {
+    content: '\2718';
+    margin-right: .5em;
+  }
+  &.completed {
+    opacity: 1;
+    &::before {
+      content: '\2714';
+      margin-right: .5em;
+    }
+  }
 }

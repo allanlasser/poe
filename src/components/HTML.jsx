@@ -21,7 +21,7 @@ const HTML = ({content, store}) => {
 };
 
 HTML.propTypes = {
-  component: PropTypes.string,
+  content: PropTypes.string,
   store: PropTypes.object,
 };
 

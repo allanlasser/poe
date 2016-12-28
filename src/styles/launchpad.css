@@ -41,3 +41,21 @@ a {
   background-position: right top;
   background-repeat: no-repeat;
 }
+
+ul.nostyle {
+  list-style: none;
+  padding-left: 0;
+}
+
+.todo {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: .5em;
+  opacity: .5;
+  input {
+    margin-right: .25em;
+  }
+  &.completed {
+    opacity: 1;
+  }
+}

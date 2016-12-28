@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+import LaunchChecklist from '../containers/LaunchChecklist';
+
 const Home = () => (
   <div className="fullpage cover bg-pink" id="home">
     <div className="w-100 mw6 ph3 b">
@@ -10,6 +12,7 @@ const Home = () => (
       </header>
       <img src="/launchpad.png" className="mb4 db" />
       <h1 className="mt0 mb4 tl f1">Ready for liftoff.</h1>
+      <LaunchChecklist />
     </div>
   </div>
 );

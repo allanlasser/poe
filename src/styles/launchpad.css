@@ -1,3 +1,5 @@
+$pink: #ff2679;
+
 body {
   line-height: 1.4;
 }
@@ -10,10 +12,8 @@ h1 {
 }
 
 a {
-  // margin-right: 1em;
-  color: white;
+  color: $pink;
   font-weight: bold;
-  text-decoration: none;
 }
 
 #app {
@@ -25,6 +25,15 @@ a {
   color: white;
 }
 
+.translate-y-50 {
+  transform: translateY(50vh);
+}
+
+.dither {
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
 .fullpage {
   width: 100%;
   min-width: 100%;
@@ -34,14 +43,29 @@ a {
   flex-direction: column;
   align-items: center;
 }
+
+.pink {
+  color: $pink;
+}
 .bg-pink {
-  background-color: #ff2679;
+  background-color: $pink;
 }
 
-#about {
-  background-image: url('../../public/launchpad-about.png');
+#launch-button {
+  color: $pink;
+  .absolute {
+    top: 40%;
+    right: 3%;
+    transform: rotate(5deg);
+  }
+}
+
+#hello-world {
+  width: 100%;
+  height: 400px;
+  background-image: url('../../public/marble.png');
   background-size: auto;
-  background-position: center top;
+  background-position: center center;
   background-repeat: no-repeat;
 }
 
@@ -65,6 +89,9 @@ ul.nostyle {
   margin-bottom: .5em;
   opacity: .5;
   font-weight: 400;
+  label {
+    cursor: pointer;
+  }
   input {
     display: none;
     margin-right: .5em;

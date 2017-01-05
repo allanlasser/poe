@@ -45,16 +45,7 @@ This should install the relevant packages to your machine.
 
 When a new dependency is added to the project, the docker containers for Feathers and Packages will need to be rebuilt, in order to install the new packages. For this reason, you may find it easier to run the Feathers and Webpack services from your own host machine, after their packages have been installed. Remember that the addresses Feathers uses for Postgres and Redis will have to be adjusted to use `localhost`, instead of their Docker-provided hosts.
 
-## Testing
-
-Before running tests, ensure that the Postgres and Redis services are running with `docker-compose start postgres redis`. If they are not running, the Feathers application will time out when testing request responses.
-
-Then, simply run `npm test` and all your tests in the `test/` directory will be run.
-
-- To run tests without linting, run `npm run mocha`.
-- To run linting without tests, run `npm run lint`.
-
-## Scaffolding
+### Scaffold
 
 Feathers has a powerful command line interface. Here are a few things it can do:
 
@@ -66,5 +57,16 @@ $ feathers generate hook                  # Generate a new Hook
 $ feathers generate model                 # Generate a new Model
 $ feathers help                           # Show all commands
 ```
+
+### Test
+
+Before running tests on your host machine, make sure you've installed all the Node modules (see above). Also, ensure that the Postgres and Redis services are running with `docker-compose start postgres redis`. If they are not running, the Feathers application will time out when testing request responses.
+
+Then, simply run `npm test` and all your tests in the `test/` directory will be run.
+
+- To run tests without linting, run `npm run mocha`.
+- To run linting without tests, run `npm run lint`.
+
+---
 
 Licensed under the [MIT license](LICENSE).

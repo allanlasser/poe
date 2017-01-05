@@ -1,7 +1,7 @@
 {
   "name": "launchpad",
   "description": "A starting point for amazing applications.",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "homepage": "",
   "main": "src/",
   "keywords": [

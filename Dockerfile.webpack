@@ -14,4 +14,4 @@ COPY . /usr/src/app/
 # 8080 is the Webpack Dev Server port
 EXPOSE 8080
 # Define the runtime command
-CMD ["node", "/usr/src/app/dev/webpackServer.js"]
+CMD ["npm", "run webpack"]

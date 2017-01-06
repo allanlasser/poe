@@ -2,13 +2,13 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
 
-import Todo from '../../src/components/todo/Todo';
+import Todo from '../../../src/components/todo/Todo';
 
 describe('<Todo /> component', function() {
-  describe('complete', function() {
+  describe('when complete is false', function() {
     let wrapper;
     const todoProps = {
-      'onClick': function() { return null; },
+      'onClick': () => (null),
       'completed': false,
       'text': 'Example Todo'
     };
@@ -33,7 +33,7 @@ describe('<Todo /> component', function() {
       expect(input.prop('checked')).to.be.false;
     });
   });
-  describe('incomplete', function() {
+  describe('when complete is true', function() {
     let wrapper;
     const todoProps = {
       'onClick': function() { return null; },

@@ -18,9 +18,9 @@ Launchpad's testing framework is [Mocha](http://mochajs.org), flavored with [Cha
 [Enzyme](http://airbnb.io/enzyme/) is included to make testing React components simple and straightforward.
 Basic style and syntax patterns are enforced by [eslint](http://eslint.org), but it's also helpful for catching syntax errors as well.
 
-## First Run
+## Run
 
-1. Install Docker by visiting [docs.docker.com](docs.docker.com) and installing the Docker application for your operating system.
+1. Install [Docker](docs.docker.com).
 2. Run `docker-compose up` inside this directory. (Optional: include the `-d` flag to suppress output.)
 3. Visit `localhost:3030` from your favorite browser.
 
@@ -30,6 +30,10 @@ The Docker setup provides very helpful shortcuts and configuration when running 
 When developing an application, it is usually faster and more helpful to install software to your host machine.
 Usually, you won't need to have Postgres or Redis installed on your host machine.
 Just the Node software should be enough to get up and running.
+
+One of Launchpad's basic assumptions is that it's faster and easier to delete code and utilities that you don't need, rather than install and configure code and utilities that you do.
+For example, if you don't need a database, then go ahead and remove the Postgres service from the `docker-compose.yml` file and remove `sequelize` from your Feathers services.
+It all comes down to entropy, really, and Launchpad wants to reduce it as much as possible.
 
 ### Install
 
@@ -45,6 +49,15 @@ This should install the relevant packages to your machine.
 
 When a new dependency is added to the project, the docker containers for Feathers and Packages will need to be rebuilt, in order to install the new packages. For this reason, you may find it easier to run the Feathers and Webpack services from your own host machine, after their packages have been installed. Remember that the addresses Feathers uses for Postgres and Redis will have to be adjusted to use `localhost`, instead of their Docker-provided hosts.
 
+### Test
+
+Before running tests on your host machine, make sure you've installed all the Node modules (see above). WHile tests can run in Docker containers, it's faster and easier to run them on your own. Also, ensure that the Postgres and Redis services are running with `docker-compose start postgres redis`. If they are not running, the Feathers application will time out when testing request responses.
+
+Then, simply run `npm test` and all your tests in the `test/` directory will be run.
+
+- To run tests without linting, run `npm run mocha`.
+- To run linting without tests, run `npm run lint`.
+
 ### Scaffold
 
 Feathers has a powerful command line interface. Here are a few things it can do:
@@ -58,15 +71,8 @@ $ feathers generate model                 # Generate a new Model
 $ feathers help                           # Show all commands
 ```
 
-### Test
-
-Before running tests on your host machine, make sure you've installed all the Node modules (see above). Also, ensure that the Postgres and Redis services are running with `docker-compose start postgres redis`. If they are not running, the Feathers application will time out when testing request responses.
-
-Then, simply run `npm test` and all your tests in the `test/` directory will be run.
-
-- To run tests without linting, run `npm run mocha`.
-- To run linting without tests, run `npm run lint`.
-
 ---
+
+Launchpad was developed by Allan Lasser for Massive.
 
 Licensed under the [MIT license](LICENSE).

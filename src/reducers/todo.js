@@ -5,7 +5,7 @@ const createTodo = (text) => ({
   completed: true,
 });
 
-const todoList = [
+export const todoList = [
   createTodo('docker'),
   createTodo('feathers'),
   createTodo('redis'),

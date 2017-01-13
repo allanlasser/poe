@@ -24,6 +24,21 @@ Basic style and syntax patterns are enforced by [eslint](http://eslint.org), but
 2. Run `docker-compose up` inside this directory. (Optional: include the `-d` flag to suppress output.)
 3. Visit `localhost:3030` from your favorite browser.
 
+### Start in background
+
+1. After installing docker, run `docker-compose start` in this directory. This will turn all the services on and then cancel. Since the services are running in their containers, it will be like they are all running in the background. (Use `docker-compose stop` when you don't need them running anymore.)
+
+### Start and stop individual services
+
+Each service can be run independently by using its name as an argument to a command.
+The available services are:
+* `feathers`
+* `webpack`
+* `postgres`
+* `redis`
+
+e.g. `docker-compose start postgres`
+
 ## Develop
 
 The Docker setup provides very helpful shortcuts and configuration when running the server.

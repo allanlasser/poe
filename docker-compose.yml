@@ -23,6 +23,13 @@ services:
             - redis
         environment:
             PORT: 3030
+    nginx:
+        image: nginx
+        ports:
+          - "80:80"
+        volumes:
+          - ./config:/usr/src/config
+        command: nginx -c /usr/src/config/nginx.conf -g "daemon off;"
     redis:
         image: redis
         ports:

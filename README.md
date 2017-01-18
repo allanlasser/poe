@@ -73,6 +73,10 @@ Then, simply run `npm test` and all your tests in the `test/` directory will be 
 - To run tests without linting, run `npm run mocha`.
 - To run linting without tests, run `npm run lint`.
 
+If you took the suggestion to install Yarn, then you can also use `yarn test`, `yarn run mocha`, and `yarn run lint`. It's a little nicer than the standard `npm` interface.
+
+For more on running tests, check out the README file in the `/test` directory.
+
 ### Scaffold
 
 Feathers has a powerful command line interface. Here are a few things it can do:

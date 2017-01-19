@@ -21,7 +21,7 @@
     "start": "TMPDIR=/tmp babel-watch src/server.js",
     "mocha": "NODE_ENV=test mocha --compilers js:babel-core/register --require test/setup.js --recursive test/",
     "webpack": "node dev/webpackServer.js",
-    "build:production": "NODE_ENV=production webpack && babel src -d dist",
+    "build:production": "NODE_ENV=production webpack -p && babel src -d dist -q",
     "serve:production": "NODE_ENV=production node dist/server.js"
   },
   "dependencies": {

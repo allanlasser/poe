@@ -86,6 +86,15 @@ $ feathers generate model                 # Generate a new Model
 $ feathers help                           # Show all commands
 ```
 
+## Deploy
+
+As it happens, Docker provides a very nice elegant interface for code deployment with its [Machine](https://docs.docker.com/machine/overview/) utility. The following steps will walk through using `docker-machine` and [DigitalOcean](cloud.digitalocean.com) to create a remote host and deploy Launchpad to it. But before following these steps, [try walking through the provided example](https://docs.docker.com/machine/examples/ocean/) in order to familiarize the process and ensure everything's working correctly.
+
+1. Create a remote host (a _droplet_): `docker-machine create launchpad --driver digitalocean`
+2. The package installation process uses slightly more RAM than the base-level droplet provides, so sign in to [the management console](cloud.digitalocean.com) and resize your droplet to use the next tier of 1GB memory (in theory, there are ways to enable memory swapping on the droplet so that the installation can proceed with the base level of RAM, but in practice I've found them to be more complicated and less reliable than just resizing the droplet).
+3. Make sure you're connected to the droplet: `docker-machine ls` should show the `launchpad` machine as active. If you're not connected, use `docker-machine env launchpad` to get instructions on how to connect.
+4. Build and run the services using the production configuration: `docker-compose -f production.yml up` (optionally provide the `-d` flag to suppress output).
+
 ---
 
 Launchpad was developed by Allan Lasser for Massive.

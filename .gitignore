@@ -33,6 +33,7 @@ public/main.*
 
 lib/
 data/
+dist/
 
 # Mac junk
 .DS_Store

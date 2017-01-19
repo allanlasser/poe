@@ -12,16 +12,10 @@ var isProd = nodeEnv === 'production';
 
 var config = {
     devtool: 'eval-source-map',
-    entry: [
-      'webpack-dev-server/client?http://localhost:8080',
-      'webpack/hot/dev-server',
-      'react-hot-loader/patch',
-      path.join(__dirname, '/src/client.js')
-    ],
+    entry: path.join(__dirname, '/src/client.js'),
     output: {
       path: path.join(__dirname, '/public'),
-      filename: isDev ? '[name].js' : '[name].[chunkhash].js',
-      publicPath: 'http://localhost:8080/assets/',
+      filename: '[name].[hash].js',
     },
     module: {
       loaders: [
@@ -61,13 +55,24 @@ var config = {
 };
 
 if (isDev) {
+  config.entry = [
+    'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/dev-server',
+    'react-hot-loader/patch',
+    path.join(__dirname, '/src/client.js')
+  ];
+  config.output = {
+    path: path.join(__dirname, '/public'),
+    filename: '[name].js',
+    publicPath: 'http://localhost:8080/assets/',
+  };
   config.plugins.push(
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   );
 } else if (isProd) {
-  config.entry = path.join(__dirname, '/src/client.js');
+
   config.module.loaders = [
     { // Javascript loader
       test: /\.jsx?$/,
@@ -77,10 +82,7 @@ if (isDev) {
     },
     { // CSS loader
       test: /\.css$/,
-      loader: ExtractTextPlugin.extract({
-        fallbackLoader: 'style-loader',
-        loader: 'css-loader?sourceMap!postcss-loader?sourceMap',
-      }),
+      loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!postcss-loader?sourceMap'),
       include: path.join(__dirname, 'src'),
     },
     { // Image loader

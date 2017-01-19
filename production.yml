@@ -3,7 +3,7 @@ services:
     feathers:
         build:
             context: .
-            dockerfile: Dockerfile.feathers
+            dockerfile: Dockerfile.feathers.production
         ports:
             - "3030:3030"
         depends_on:

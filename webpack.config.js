@@ -4,6 +4,7 @@ var path = require('path');
 var webpack = require('webpack');
 var validate = require('webpack-validator');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var ManifestPlugin = require('webpack-manifest-plugin');
 
 var nodeEnv = process.env.NODE_ENV || 'development';
 var isDev = nodeEnv === 'development';
@@ -89,6 +90,7 @@ if (isDev) {
   ];
   config.plugins.push(
     new ExtractTextPlugin('main.css'),
+    new ManifestPlugin(),
     new webpack.ExtendedAPIPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {

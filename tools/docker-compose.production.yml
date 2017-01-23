@@ -1,0 +1,34 @@
+version: '2'
+services:
+    feathers:
+        build:
+            context: ..
+            dockerfile: tools/docker.feathers.production.dockerfile
+        expose:
+            - "3030"
+        depends_on:
+            - postgres
+            - redis
+        environment:
+            - PORT=3030
+            - VIRTUAL_HOST=159.203.93.123
+            - NODE_ENV=production
+    nginx:
+        image: jwilder/nginx-proxy
+        container_name: nginx-proxy
+        ports:
+            - "80:80"
+        volumes:
+            - /var/run/docker.sock:/tmp/docker.sock:ro
+    redis:
+        image: redis
+        expose:
+            - "6379"
+    postgres:
+        image: postgres
+        expose:
+            - "5432"
+        environment:
+            - POSTGRES_USER=massive
+            - POSTGRES_PASSWORD=science
+            - POSTGRES_DB=massivedb

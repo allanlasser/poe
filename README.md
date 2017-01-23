@@ -4,6 +4,10 @@ Launchpad is a starting point for amazing applications.
 
 It provides some simple setting up and configuration, so that you can just start building something!
 
+* [Run](#run)
+* [Develop](#develop)
+* [Deploy](#deploy)
+
 ## Summary
 
 Launchpad uses [Docker](http://www.docker.com) to set up and run a webserver using [NodeJS](https://nodejs.org/en/), the [Feathers](http://feathersjs.com) framework, a [Postgres](http://postgresql.org) database, and [Redis](http://redis.io) caching.
@@ -24,9 +28,13 @@ Basic style and syntax patterns are enforced by [eslint](http://eslint.org), but
 2. Run `docker-compose up` inside this directory. (Optional: include the `-d` flag to suppress output.)
 3. Visit `localhost:3030` from your favorite browser.
 
-### Start in background
+### Running locally
 
-1. After installing docker, run `docker-compose start` in this directory. This will turn all the services on and then cancel. Since the services are running in their containers, it will be like they are all running in the background. (Use `docker-compose stop` when you don't need them running anymore.)
+Run `docker-compose up -d` to bring up the services in detached mode. Since the services are running in their containers, it will be as if they were all running in the background. This is great for development.
+
+* To stop the services: `docker-compose stop`
+* To restart the services: `docker-compose start`
+* To bring down the network and remove the containers: `docker-compose down`
 
 ### Start and stop individual services
 
@@ -89,6 +97,15 @@ $ feathers generate hook                  # Generate a new Hook
 $ feathers generate model                 # Generate a new Model
 $ feathers help                           # Show all commands
 ```
+
+## Deploy
+
+As it happens, Docker provides a very nice elegant interface for code deployment with its [Machine](https://docs.docker.com/machine/overview/) utility. The following steps will walk through using `docker-machine` and [DigitalOcean](cloud.digitalocean.com) to create a remote host and deploy Launchpad to it. But before following these steps, [try walking through the provided example](https://docs.docker.com/machine/examples/ocean/) in order to familiarize the process and ensure everything's working correctly.
+
+1. Create a remote host (a _droplet_): `docker-machine create launchpad --driver digitalocean`
+2. The package installation process uses slightly more RAM than the base-level droplet provides, so sign in to [the management console](cloud.digitalocean.com) and resize your droplet to use the next tier of 1GB memory (in theory, there are ways to enable memory swapping on the droplet so that the installation can proceed with the base level of RAM, but in practice I've found them to be more complicated and less reliable than just resizing the droplet).
+3. Make sure you're connected to the droplet: `docker-machine ls` should show the `launchpad` machine as active. If you're not connected, use `docker-machine env launchpad` to get instructions on how to connect.
+4. Build and run the services using the production configuration: `docker-compose -f production.yml up` (optionally provide the `-d` flag to suppress output).
 
 ---
 

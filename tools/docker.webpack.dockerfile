@@ -5,14 +5,10 @@ FROM node:6.9.1
 # Create app directory
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
-# Install dependencies using Yarn
+# Install dependencies
 COPY package.json /usr/src/app/
-RUN npm install -g yarn
-RUN yarn
+RUN npm install -q
 # Bundle app source
 COPY . /usr/src/app/
-# 3030 is the default Feathers port
-EXPOSE 3030
 # Define the runtime command
-CMD ["npm", "start"]
-
+CMD ["npm", "run", "webpackDevServer"]

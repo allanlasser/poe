@@ -5,13 +5,10 @@ FROM node:6.9.1
 # Create app directory
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
-# Install dependencies using Yarn
+# Install dependencies
 COPY package.json /usr/src/app/
-RUN npm install -g yarn
-RUN yarn
+RUN npm install -q
 # Bundle app source
 COPY . /usr/src/app/
-# 8080 is the Webpack Dev Server port
-EXPOSE 8080
 # Define the runtime command
-CMD ["npm", "run", "webpack"]
+CMD ["npm", "run", "serve:development"]

@@ -28,9 +28,13 @@ Basic style and syntax patterns are enforced by [eslint](http://eslint.org), but
 2. Run `docker-compose up` inside this directory. (Optional: include the `-d` flag to suppress output.)
 3. Visit `localhost:3030` from your favorite browser.
 
-### Start in background
+### Running locally
 
-1. After installing docker, run `docker-compose start` in this directory. This will turn all the services on and then cancel. Since the services are running in their containers, it will be like they are all running in the background. (Use `docker-compose stop` when you don't need them running anymore.)
+Run `docker-compose up -d` to bring up the services in detached mode. Since the services are running in their containers, it will be as if they were all running in the background. This is great for development.
+
+* To stop the services: `docker-compose stop`
+* To restart the services: `docker-compose start`
+* To bring down the network and remove the containers: `docker-compose down`
 
 ### Start and stop individual services
 

@@ -1,16 +1,9 @@
 version: '2'
 services:
-    nginx:
-        image: jwilder/nginx-proxy
-        container_name: nginx-proxy
-        ports:
-            - "80:80"
-        volumes:
-            - /var/run/docker.sock:/tmp/docker.sock:ro
     feathers:
         build:
-            context: .
-            dockerfile: Dockerfile.feathers.production
+            context: ..
+            dockerfile: tools/docker.feathers.production.dockerfile
         expose:
             - "3030"
         depends_on:
@@ -19,6 +12,14 @@ services:
         environment:
             - PORT=3030
             - VIRTUAL_HOST=159.203.93.123
+            - NODE_ENV=production
+    nginx:
+        image: jwilder/nginx-proxy
+        container_name: nginx-proxy
+        ports:
+            - "80:80"
+        volumes:
+            - /var/run/docker.sock:/tmp/docker.sock:ro
     redis:
         image: redis
         expose:

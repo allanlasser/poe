@@ -25,7 +25,7 @@ Basic style and syntax patterns are enforced by [eslint](http://eslint.org), but
 ## Run
 
 1. Install [Docker](docs.docker.com).
-2. Run `docker-compose up` inside this directory. (Optional: include the `-d` flag to suppress output.)
+2. Run `docker-compose up` inside this directory (optionally include the `-d` flag to suppress output).
 3. Visit `localhost:3030` from your favorite browser.
 
 ### Running locally

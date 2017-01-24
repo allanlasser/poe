@@ -16,18 +16,15 @@
     "node": ">= 0.12.0"
   },
   "scripts": {
-    "start": "docker-compose -f tools/docker-compose.development.yml up -d",
-    "stop": "docker-compose -f tools/docker-comopse.development.yml stop",
-    "deploy": "docker-compose -f tools/docker-compose.production.yml up -d",
-    "test": "npm run lint && npm run mocha",
-    "lint": "eslint src/",
-    "mocha": "NODE_ENV=test mocha --compilers js:babel-core/register --require test/setup.js --recursive test/",
-    "compile": "babel src -d dist -q",
-    "bundle": "webpack --config tools/webpack.config.js",
+    "compile": "NODE_ENV=production babel src -d dist -q",
+    "bundle": "NODE_ENV=production webpack",
     "build": "npm run compile && npm run bundle",
     "serve:development": "TMPDIR=/tmp babel-watch src/server.js",
     "serve:production": "node dist/server.js",
-    "webpackDevServer": "node tools/webpack.server.js"
+    "webpackDevServer": "node tools/webpack.server.js",
+    "test": "npm run lint && npm run mocha",
+    "lint": "eslint src/",
+    "mocha": "NODE_ENV=test mocha --compilers js:babel-core/register --require test/setup.js --recursive test/"
   },
   "dependencies": {
     "body-parser": "^1.15.2",

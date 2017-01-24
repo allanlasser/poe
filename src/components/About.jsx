@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 const About = () => (
   <div className="fullpage bg-black white" id="about">
     <div className="w-100 mw6 ph3 bg-black-40">
-      <Link className="pink db mb4 white relative" to="/">
+      <Link className="pink db mv4 white relative" to="/">
         <img src="/marble.png" title="Alright, take us home." alt="Pixellated image of earth" className="db center br-100 dither" />
       </Link>
       <h1 className="mt0 mb4 f1 tl">Hello, World<span className="pink">.</span></h1>

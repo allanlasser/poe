@@ -2,8 +2,8 @@ version: '2'
 services:
     feathers:
         build:
-            context: ..
-            dockerfile: tools/docker.feathers.production.dockerfile
+            context: .
+            dockerfile: tools/feathers.production.dockerfile
         expose:
             - "3030"
         depends_on:

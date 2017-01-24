@@ -2,23 +2,23 @@ version: '2'
 services:
     webpack:
         build:
-            context: ..
-            dockerfile: tools/docker.webpack.dockerfile
+            context: .
+            dockerfile: tools/webpack.dockerfile
         ports:
             - "8080:8080"
         volumes:
-            - ..:/usr/src/app
+            - .:/usr/src/app
             - /usr/src/app/node_modules/
         environment:
             - NODE_ENV=development
     feathers:
         build:
-            context: ..
-            dockerfile: tools/docker.feathers.dockerfile
+            context: .
+            dockerfile: tools/feathers.dockerfile
         ports:
             - "3030:3030"
         volumes:
-            - ..:/usr/src/app
+            - .:/usr/src/app
             - /usr/src/app/node_modules/
         depends_on:
             - postgres

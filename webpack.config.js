@@ -8,8 +8,8 @@ var validate = require('webpack-validator');
 
 var nodeEnv = process.env.NODE_ENV || 'development';
 var configFiles = {
-  'development': './webpack.config.development.js',
-  'production': './webpack.config.production.js',
+  'development': './tools/webpack.config.development.js',
+  'production': './tools/webpack.config.production.js',
 };
 var config = require(configFiles[nodeEnv]);
 

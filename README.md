@@ -60,17 +60,13 @@ It all comes down to entropy, really, and Launchpad wants to reduce it as much a
 
 ### Install
 
-We suggest using [Yarn](https://yarnpkg.com) to install packages.
-It's fast and simple.
-
-1. `npm install -g yarn`
-2. `yarn`
+`npm install`
 
 This should install the relevant packages to your machine.
 
 **A note on adding dependencies**
 
-When a new dependency is added to the project, the docker containers for Feathers and Packages will need to be rebuilt, in order to install the new packages. For this reason, you may find it easier to run the Feathers and Webpack services from your own host machine, after their packages have been installed. Remember that the addresses Feathers uses for Postgres and Redis will have to be adjusted to use `localhost`, instead of their Docker-provided hosts.
+When a new dependency is added to the project, the docker containers for Feathers and Webpack will need to be rebuilt, in order to install the new packages. For this reason, you may find it easier to run the Feathers and Webpack services from your own host machine, after their packages have been installed. Remember that the addresses Feathers uses for Postgres and Redis will have to be adjusted to use `localhost`, instead of their Docker-provided hosts.
 
 ### Test
 
@@ -80,8 +76,6 @@ Then, simply run `npm test` and all your tests in the `test/` directory will be 
 
 - To run tests without linting, run `npm run mocha`.
 - To run linting without tests, run `npm run lint`.
-
-If you took the suggestion to install Yarn, then you can also use `yarn test`, `yarn run mocha`, and `yarn run lint`. It's a little nicer than the standard `npm` interface.
 
 For more on running tests, check out the README file in the `/test` directory.
 
@@ -109,6 +103,6 @@ As it happens, Docker provides a very nice elegant interface for code deployment
 
 ---
 
-Launchpad was developed by Allan Lasser for Massive.
+Launchpad was developed by [Allan Lasser](http://www.allanlasser.com) for [Massive](https://massivesci.com).
 
 Licensed under the [MIT license](LICENSE).

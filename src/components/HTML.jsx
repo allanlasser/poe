@@ -3,18 +3,18 @@ import serialize from 'serialize-javascript';
 import React, { PropTypes } from 'react';
 import { renderToString } from 'react-dom';
 
-const isDev = process.env.NODE_ENV === 'development';
+const NODE_ENV = process.env.NODE_ENV || 'development';
 
 const HTML = ({content, store}) => {
   const root = content ? content : '';
   let mainScriptSrc, mainStyleSrc;
-  if (isDev) {
-    mainScriptSrc = 'http://localhost:8080/assets/main.js';
-    mainStyleSrc = '';
-  } else {
+  if (NODE_ENV === 'production') {
     const webpackManifest = require('../../public/manifest.json');
     mainScriptSrc = webpackManifest['main.js'];
     mainStyleSrc = webpackManifest['main.css'];
+  } else {
+    mainScriptSrc = 'http://localhost:8080/assets/main.js';
+    mainStyleSrc = '';
   }
   return (
     <html>

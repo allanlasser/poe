@@ -31,13 +31,20 @@ services:
         image: redis
         ports:
             - "6379:6379"
+        volumes:
+            - redis:/data
         depends_on:
             - postgres
     postgres:
         image: postgres
         ports:
             - "5432:5432"
+        volumes:
+            - postgres:/var/lib/postgresql/data
         environment:
             - POSTGRES_USER=massive
             - POSTGRES_PASSWORD=science
             - POSTGRES_DB=massivedb
+volumes:
+    postgres:
+    redis:

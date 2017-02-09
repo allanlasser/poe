@@ -1,5 +1,5 @@
 {
-  "host": "domain.com",
+  "host": "launchpad.massivesci.com",
   "port": 3030,
   "postgres": "postgres://massive:science@postgres:5432/massivedb",
   "redis": "redis://redis:6379/0",

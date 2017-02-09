@@ -11,7 +11,7 @@ services:
             - redis
         environment:
             - PORT=3030
-            - VIRTUAL_HOST=159.203.93.123
+            - VIRTUAL_HOST=launchpad.massivesci.com
             - NODE_ENV=production
     nginx:
         image: jwilder/nginx-proxy

@@ -1,10 +1,10 @@
 import { routerReducer as routing } from 'react-router-redux';
 import { combineReducers } from 'redux';
 
-import todos from './reducers/todo';
+import { poems } from './poems';
 
 const rootReducer = combineReducers({
-  todos,
+  poems,
   routing
 });
 

@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Poem from '../components/poetry/Poem';
+import { fetchPoemIfNeeded } from '../actions';
 
 class PoemContainer extends React.Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class PoemContainer extends React.Component {
 
   render() {
     const { title, poem } = this.props;
-    if (poem.isFetching) {
+    if (!poem || poem.isFetching) {
       return <p>Loading…</p>;
     } else if (!poem.isFetching && !poem.poem) {
       return <p>No poem found with that title.</p>;
@@ -32,17 +33,18 @@ class PoemContainer extends React.Component {
 }
 
 PoemContainer.propTypes = {
-  dispatch: PropTypes.func,
+  dispatch: PropTypes.func.isRequired,
   title: PropTypes.string,
   poem: PropTypes.object,
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  poem: state.poems[ownProps.title]
+  poem: state.poems[ownProps.params.title],
+  title: ownProps.params.title,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-
+  dispatch: dispatch
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PoemContainer);

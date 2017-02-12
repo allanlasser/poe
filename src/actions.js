@@ -1,7 +1,5 @@
 import fetch from 'isomorphic-fetch';
 
-const API_ROOT = 'http://poetrydb.org/';
-
 export const requestPoem = (title) => ({
   type: 'REQUEST_POEM',
   title
@@ -16,7 +14,7 @@ const receivePoem = (poem) => ({
 function fetchPoem(title) {
   return (dispatch) => {
     dispatch(requestPoem(title));
-    const query = API_ROOT + `/title/${title}/title,author,lines,linecount`;
+    const endpoint = `/poems/${title}`;
     return fetch(endpoint)
       .then(response => {
         if (response.status >= 400) {

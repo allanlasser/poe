@@ -1,17 +1,21 @@
 import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
+import Title from './Title';
 
 const Poem = ({poem}) => (
-  <div className="poem">
-    <h1 className="title">{poem.title}</h1>
-    <p className="author">by {poem.author}</p>
-    <div className="lines serif mv5">
+  <div className="poem serif mv4">
+    <Title title={poem.title} author={poem.author} />
+    <main className="lines serif black-90 mv5">
       {poem.lines.map((line, i) => (
         <p key={'line-' + i}>
-          <span className="gray f6 mr2" style={{minWidth: '1em'}}>{i + 1}</span>
-          {line}
+          <span className="black-60 f6 mr2" style={{float: 'right'}}>{i + 1}</span>
+          {line || '\u200b' }
         </p>
       ))}
-    </div>
+    </main>
+    <footer className="tc mb4">
+      <Link to="/" className="green hover-dark-green link">&larr; Back to poems</Link>
+    </footer>
   </div>
 );
 

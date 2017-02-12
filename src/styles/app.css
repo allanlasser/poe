@@ -12,3 +12,7 @@ html {
 body {
   margin: 0;
 }
+
+.serif {
+  font-family: "Iowan Old Style", "Georgia", serif;
+}

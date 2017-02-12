@@ -11,7 +11,14 @@ class Service {
   }
 
   find(params) {
-    return Promise.resolve([]);
+    const endpoint = API_ROOT + '/title/*/title,author';
+    return fetch(endpoint)
+      .then(response => {
+        if (response.status >= 400) {
+            throw new Error('Bad response from server');
+        }
+        return response.json();
+      });
   }
 
   get(title, params) {
@@ -21,7 +28,6 @@ class Service {
         if (response.status >= 400) {
             throw new Error('Bad response from server');
         }
-        console.log(response);
         return response.json();
       });
   }
@@ -51,10 +57,10 @@ module.exports = function(){
   const app = this;
 
   // Initialize our service with any options it requires
-  app.use('/poems', new Service());
+  app.use('/api/poems', new Service());
 
   // Get our initialize service to that we can bind hooks
-  const poetryService = app.service('/poems');
+  const poetryService = app.service('/api/poems');
 
   // Set up our before hooks
   poetryService.before(hooks.before);
